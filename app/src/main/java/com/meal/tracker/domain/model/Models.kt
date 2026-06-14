@@ -54,7 +54,7 @@ enum class MealFilter {
     ALL, BREAKFAST, LUNCH, DINNER
 }
 
-sealed interface ExportResult {
-    data class Success(val path: String) : ExportResult
-    data class Error(val message: String) : ExportResult
+sealed class ExportResult {
+    data class Success(val path: String) : ExportResult()
+    data class Error(val message: String) : ExportResult()
 }
