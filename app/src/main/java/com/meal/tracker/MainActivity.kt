@@ -37,7 +37,7 @@ class MainActivity : ComponentActivity() {
 }
 
 sealed class Screen(val route: String, val title: String, val icon: ImageVector) {
-    object Home : Screen("home", "日报", Icons.Default.DateToday)
+    object Home : Screen("home", "日报", Icons.Default.Home)
     object Student : Screen("student", "学生", Icons.Default.People)
     object Statistics : Screen("statistics", "统计", Icons.Default.BarChart)
     object Settings : Screen("settings", "设置", Icons.Default.Settings)
