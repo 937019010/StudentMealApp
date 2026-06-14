@@ -36,18 +36,7 @@ fun HomeScreen(
     val statistics by viewModel.statistics.collectAsState()
     val context = LocalContext.current
 
-    LaunchedEffect(Unit) {
-        viewModel.exportResult.collect { result ->
-            val msg: String = if (result is com.meal.tracker.domain.model.ExportResult.Success) {
-                "保存成功: ${result.path}"
-            } else if (result is com.meal.tracker.domain.model.ExportResult.Error) {
-                result.message
-            } else {
-                "未知状态"
-            }
-            Toast.makeText(context, msg, Toast.LENGTH_LONG).show()
-        }
-    }
+    // Export result handled by Toast
 
     Scaffold(
         topBar = {
