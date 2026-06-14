@@ -39,8 +39,8 @@ fun HomeScreen(
     LaunchedEffect(Unit) {
         viewModel.exportResult.collect { result ->
             val msg = when (result) {
-                is ExportResult.Success -> "保存成功: ${result.path}"
-                is ExportResult.Error -> result.message
+                is com.meal.tracker.domain.model.ExportResult.Success -> "保存成功: ${result.path}"
+                is com.meal.tracker.domain.model.ExportResult.Error -> result.message
                 else -> "未知状态"
             }
             Toast.makeText(context, msg, Toast.LENGTH_LONG).show()
