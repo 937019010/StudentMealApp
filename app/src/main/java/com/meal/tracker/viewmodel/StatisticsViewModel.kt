@@ -60,8 +60,3 @@ class StatisticsViewModel(application: Application) : AndroidViewModel(applicati
         private val DATE_FORMAT = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
     }
 }
-
-sealed class ExportResult {
-    data class Success(val path: String) : ExportResult()
-    data class Error(val message: String) : ExportResult()
-}

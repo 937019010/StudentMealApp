@@ -53,3 +53,8 @@ data class StudentStatistics(
 enum class MealFilter {
     ALL, BREAKFAST, LUNCH, DINNER
 }
+
+sealed class ExportResult {
+    data class Success(val path: String) : ExportResult()
+    data class Error(val message: String) : ExportResult()
+}
