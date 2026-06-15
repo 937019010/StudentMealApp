@@ -1,6 +1,5 @@
 package com.meal.tracker.ui.screens.home
 
-import android.widget.Toast
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
@@ -13,12 +12,10 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.meal.tracker.domain.model.ExportResult
 import com.meal.tracker.domain.model.MealFilter
 import com.meal.tracker.ui.components.MealFilterChips
 import com.meal.tracker.ui.components.StudentMealCard
@@ -36,7 +33,15 @@ fun HomeScreen(
     val statistics by viewModel.statistics.collectAsState()
     val context = LocalContext.current
 
-    // Export result handled by Toast
+    LaunchedEffect(Unit) {
+        viewModel.exportResult.collect { result ->
+            val msg = when (result) {
+                is ExportResult.Success -> "保存成功: ${result.path}"
+                is ExportResult.Error -> result.message
+            }
+            Toast.makeText(context, msg, Toast.LENGTH_LONG).show()
+        }
+    }
 
     Scaffold(
         topBar = {
