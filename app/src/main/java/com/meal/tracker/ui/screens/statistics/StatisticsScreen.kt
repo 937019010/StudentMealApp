@@ -17,9 +17,9 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.meal.tracker.domain.model.ExportResult
 import com.meal.tracker.domain.model.StudentStatistics
 import com.meal.tracker.ui.theme.*
-import com.meal.tracker.viewmodel.ExportResult
 import com.meal.tracker.viewmodel.StatisticsViewModel
 import java.text.SimpleDateFormat
 import java.util.*

@@ -5,6 +5,7 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
 import com.meal.tracker.di.ServiceLocator
 import com.meal.tracker.data.export.ExportRepository
+import com.meal.tracker.domain.model.ExportResult
 import com.meal.tracker.domain.model.StudentStatistics
 import com.meal.tracker.domain.usecase.StatisticsUseCase
 import kotlinx.coroutines.flow.*
